@@ -7,8 +7,8 @@ public class PusherManager : MonoBehaviour
 {
     // A mutation of https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager
     public static PusherManager instance = null;
-    private Pusher _pusher;
-    private Channel _channel;
+    protected Pusher _pusher;
+    protected Channel _channel;
     private const string APP_KEY = "APP_KEY";
     private const string APP_CLUSTER = "APP_CLUSTER";
 
@@ -27,7 +27,7 @@ public class PusherManager : MonoBehaviour
         Console.WriteLine("Starting");
     }
 
-    private async Task InitialisePusher()
+    protected async Task InitialisePusher()
     {
         //Environment.SetEnvironmentVariable("PREFER_DNS_IN_ADVANCE", "true");
 
@@ -52,7 +52,7 @@ public class PusherManager : MonoBehaviour
         }
     }
 
-    private void PusherOnConnected(object sender)
+    protected void PusherOnConnected(object sender)
     {
         Debug.Log("Connected");
         _channel.Bind("my-event", (dynamic data) =>
@@ -61,17 +61,17 @@ public class PusherManager : MonoBehaviour
         });
     }
 
-    private void PusherOnConnectionStateChanged(object sender, ConnectionState state)
+    protected void PusherOnConnectionStateChanged(object sender, ConnectionState state)
     {
         Debug.Log("Connection state changed");
     }
 
-    private void OnPusherOnError(object s, PusherException e)
+    protected void OnPusherOnError(object s, PusherException e)
     {
         Debug.Log("Errored");
     }
 
-    private void OnChannelOnSubscribed(object s, Channel channel)
+    protected void OnChannelOnSubscribed(object s, Channel channel)
     {
         Debug.Log("Subscribed");
     }
