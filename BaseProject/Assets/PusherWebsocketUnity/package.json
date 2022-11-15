@@ -2,7 +2,6 @@
     "name": "com.pusher.pusherwebsocketunity",
     "version": "2.1.2",
     "displayName": "PusherWebsocketUnity",
+    "unity": "2018.1",
     "description": "Pusher Channels Client for realtime websockets on Unity",
-    "unity": "2020.3",
-    "unityRelease": "37f1"
 }
